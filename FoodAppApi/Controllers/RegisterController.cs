@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,9 @@ namespace FoodAppApi.Controllers
     [ApiController]
     public class RegisterController : ControllerBase
     {
+
+
+
+
     }
 }
