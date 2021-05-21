@@ -24,11 +24,51 @@ namespace FoodAppApi.Entities
                     _dbContext.Dishes.AddRange(dishes);
                     _dbContext.SaveChanges();
                 }
+
+                if (!_dbContext.Users.Any())
+                {
+                    var users = GetUsers();
+                    _dbContext.Users.AddRange(users);
+                    _dbContext.SaveChanges();
+                }
             }
+        }
+
+        private IEnumerable<User> GetUsers()
+        {
+            var users = new List<User>()
+            {
+                  new User()
+            {
+
+                UserName = "chiqi",
+                Password = "testowehaslo",
+                Email = "Testowy email",
+                Name = "Zenek",
+                LastName = "Sztacheta"
+
+            },
+                   new User()
+              {
+
+
+                 UserName = "Taki2",
+                 Password = "testowehaslo",
+                 Email = "Testowy email",
+                 Name = "Marcin",
+                 LastName = "Wozek"
+
+                }
+            };
+
+            return users;
         }
 
         private IEnumerable<Dish> GetDishes()
         {
+
+
+
             var dishes = new List<Dish>()
            {
                new Dish()

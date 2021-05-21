@@ -19,7 +19,15 @@ namespace FoodAppApi.Controllers
             _userService = userService;
         }
 
-
+        [Route("GetAll")]
+        [HttpGet]
+        public ActionResult<IEnumerable<User>> GetUsers()
+        {
+            var users =_userService
+                .GetAllUsers()
+                .ToList();
+            return Ok(users);
+        }
 
 
     }

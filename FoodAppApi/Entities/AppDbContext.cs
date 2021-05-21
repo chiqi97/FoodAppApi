@@ -52,6 +52,9 @@ namespace FoodAppApi.Entities
             modelBuilder.Entity<Dish>()
                 .Property(d => d.Price)
                 .IsRequired();
+
+
+
         }
 
 
