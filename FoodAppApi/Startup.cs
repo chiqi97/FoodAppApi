@@ -1,4 +1,5 @@
 using FoodAppApi.Entities;
+using FoodAppApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,17 +32,26 @@ namespace FoodAppApi
             services.AddDbContextPool<AppDbContext>(
             options => options.UseSqlServer(Configuration.GetConnectionString("FoodAppDBConnection")));
 
+            services.AddScoped<FoodAppSeeder>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FoodAppApi", Version = "v1" });
             });
+
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDishService, DishService>();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,FoodAppSeeder seeder)
         {
+            seeder.Seed();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -50,7 +60,9 @@ namespace FoodAppApi
             }
 
             app.UseHttpsRedirection();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "FoddApp Api"));
             app.UseRouting();
 
             app.UseAuthorization();
