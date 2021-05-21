@@ -1,4 +1,5 @@
 ﻿using FoodAppApi.Entities;
+using FoodAppApi.Models;
 using FoodAppApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,7 +20,7 @@ namespace FoodAppApi.Controllers
             _userService = userService;
         }
 
-        [Route("GetAll")]
+        [Route("GetAllUsers")]
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetUsers()
         {
@@ -27,6 +28,19 @@ namespace FoodAppApi.Controllers
                 .GetAllUsers()
                 .ToList();
             return Ok(users);
+        }
+
+        [Route("CreateUser")]
+        [HttpPost]
+        public ActionResult CreateUser ([FromBody] CreateUserDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            int id = _userService.Create(dto);
+
+            return Created($"/api/restaurant/{id}", null);
         }
 
 

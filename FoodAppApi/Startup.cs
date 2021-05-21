@@ -33,6 +33,7 @@ namespace FoodAppApi
             options => options.UseSqlServer(Configuration.GetConnectionString("FoodAppDBConnection")));
 
             services.AddScoped<FoodAppSeeder>();
+            services.AddAutoMapper(this.GetType().Assembly);
 
 
             services.AddControllers();
