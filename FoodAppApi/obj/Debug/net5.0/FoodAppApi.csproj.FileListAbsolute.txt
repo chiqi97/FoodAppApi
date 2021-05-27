@@ -58,6 +58,6 @@ C:\Users\User\source\repos\FoodAppApi\FoodAppApi\obj\Debug\net5.0\FoodAppApi.dll
 C:\Users\User\source\repos\FoodAppApi\FoodAppApi\obj\Debug\net5.0\ref\FoodAppApi.dll
 C:\Users\User\source\repos\FoodAppApi\FoodAppApi\obj\Debug\net5.0\FoodAppApi.pdb
 C:\Users\User\source\repos\FoodAppApi\FoodAppApi\obj\Debug\net5.0\FoodAppApi.genruntimeconfig.cache
-C:\Users\User\source\repos\FoodAppApi\FoodAppApi\obj\Debug\net5.0\FoodAppApi.csprojAssemblyReference.cache
 C:\Users\User\source\repos\FoodAppApi\FoodAppApi\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\User\source\repos\FoodAppApi\FoodAppApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\User\source\repos\FoodAppApi\FoodAppApi\obj\Debug\net5.0\FoodAppApi.csproj.AssemblyReference.cache

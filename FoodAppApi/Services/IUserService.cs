@@ -6,7 +6,7 @@ namespace FoodAppApi.Services
 {
     public interface IUserService
     {
-        IEnumerable<User> GetAllUsers();
+        IEnumerable<User> GetAll();
         int Create(CreateUserDto dto);
     }
 }

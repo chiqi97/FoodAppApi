@@ -19,10 +19,15 @@ namespace FoodAppApi.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public IEnumerable<User> GetAll()
         {
             return _dbContext.Users;
         }
+
+        //public User GetUser()
+        //{
+
+        //}
 
         public int Create(CreateUserDto dto)
         {

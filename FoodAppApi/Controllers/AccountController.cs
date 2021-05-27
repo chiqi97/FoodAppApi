@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace FoodAppApi.Controllers
 {
-    [Route("api/Account")]
+
     [ApiController]
+    [Route("[controller]")]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
@@ -20,18 +21,23 @@ namespace FoodAppApi.Controllers
             _userService = userService;
         }
 
-        [Route("GetAllUsers")]
-        [HttpGet]
-        public ActionResult<IEnumerable<User>> GetUsers()
+
+        [HttpGet("GetAll")]
+        public ActionResult<IEnumerable<User>> GetAll()
         {
             var users =_userService
-                .GetAllUsers()
+                .GetAll()
                 .ToList();
             return Ok(users);
         }
 
-        [Route("CreateUser")]
-        [HttpPost]
+        //[HttpGet("{id}")]
+        //public ActionResult<User> Get([FromRoute] int id)
+        //{
+        //    var user=_d
+        //}
+
+        [HttpPost("Create")]
         public ActionResult CreateUser ([FromBody] CreateUserDto dto)
         {
             if (!ModelState.IsValid)
@@ -40,7 +46,7 @@ namespace FoodAppApi.Controllers
             }
             int id = _userService.Create(dto);
 
-            return Created($"/api/restaurant/{id}", null);
+            return Created($"/api/user/{id}", null);
         }
 
 
