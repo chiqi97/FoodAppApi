@@ -21,23 +21,25 @@ namespace FoodAppApi.Services
             _dbContext = dbContext;
             _mapper = mapper;
         }
-        public IEnumerable<Dish> GetAllDishes()
+        public IEnumerable<Dish> GetAll()
         {
             return _dbContext.Dishes;
         }
 
-        [HttpGet("{id}")]
+
         public DishDto GetById(int id)
         {
    
             var dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == id);
             if (dish is null)
             {
-                throw new NotFoundException("Restaurant not found");
+                throw new NotFoundException("Dish not found");
             }
             var result = _mapper.Map<DishDto>(dish);
             return result;
         }
+
+
 
 
     }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FoodAppApi.Entities;
+using FoodAppApi.Exceptions;
 using FoodAppApi.Models;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,17 @@ namespace FoodAppApi.Services
             return _dbContext.Users;
         }
 
+        public UserDto GetById (int id)
+        {
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id ==id);
+            if(user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
 
+            var result = _mapper.Map<UserDto>(user);
+            return result;
+        }
 
         public int Create(CreateUserDto dto)
         {

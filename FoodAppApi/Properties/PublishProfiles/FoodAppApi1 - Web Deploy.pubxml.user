@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAcJIf6m8gBkaqQ607Yb949gAAAAACAAAAAAAQZgAAAAEAACAAAAAozH6qB5a0oOcbA5sYLNwPYsTuPbfJlS+CYNdegQnmxwAAAAAOgAAAAAIAACAAAADCG8EEPHdViDE2SAczqmQnyvWIoiWyfRzM/HFY9bt5foAAAABt7trRgF/SOfaFBSd75vZXof9w9XAjtXwnCJHnAC8nhYsbTq4gjtJ20Xaxz5RIrvL1LCDfCr/hLsglt6TzsZ8wwpRC17tYTPYzlxLT5tz3GUg3X+qvgbCDvz3UxvaCWNdPA9JRSQuAqVheGcLuImLCDDcTZs8XOmpidnBl2ApGoEAAAAAXfnmaWEAGkV0rJIRw3G3IaW0Jnlfyl83/uLYdKgkU48N1ItpQTGI/MptpPW6ijPwVIMXDtG4NhACvboGEnbWp</EncryptedPassword>
+    <History>True|2021-05-28T13:11:10.9519372Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="FoodAppApi.Entities.AppDbContext">
+      <Value>Data Source=tcp:foodappapidbserver.database.windows.net,1433%3bInitial Catalog=FoodAppApi_db%3bUser Id=chiqi%40foodappapidbserver%3bPassword=SuYeGh97</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

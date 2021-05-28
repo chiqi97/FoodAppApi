@@ -27,7 +27,7 @@ namespace FoodAppApi.Controllers
         public ActionResult<IEnumerable<Dish>> GetAll()
         {
             var dishes = _dishService
-                .GetAllDishes()
+                .GetAll()
                 .ToList();
 
             return Ok(dishes);

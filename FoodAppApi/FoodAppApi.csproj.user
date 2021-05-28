@@ -3,6 +3,6 @@
   <PropertyGroup>
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>C:\Users\User\source\repos\FoodAppApi\FoodAppApi\Properties\PublishProfiles\FoodApp-Api - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>FoodAppApi1 - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

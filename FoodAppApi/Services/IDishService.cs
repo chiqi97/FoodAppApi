@@ -6,7 +6,7 @@ namespace FoodAppApi.Services
 {
     public interface IDishService
     {
-        IEnumerable<Dish> GetAllDishes();
+        IEnumerable<Dish> GetAll();
         DishDto GetById(int id);
     }
 }

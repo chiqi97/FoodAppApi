@@ -50,5 +50,25 @@ namespace FoodAppApi.Controllers
         }
 
 
+        [HttpGet("CreateNaGecie")]
+        public ActionResult CreateUserNaGecie([FromBody] CreateUserDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            int id = _userService.Create(dto);
+
+            return Created($"/api/user/{id}", null);
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult Get([FromRoute] int id)
+        {
+            var userDto = _userService.GetById(id);
+            return Ok(userDto);
+        }
+
+
     }
 }

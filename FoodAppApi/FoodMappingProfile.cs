@@ -15,6 +15,7 @@ namespace FoodAppApi
             CreateMap<CreateUserDto, User>();
 
             CreateMap<Dish, DishDto>();
+            CreateMap<User, UserDto>();
 
         }
             
