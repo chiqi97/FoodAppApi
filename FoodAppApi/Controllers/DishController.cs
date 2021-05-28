@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 namespace FoodAppApi.Controllers
 {
 
-    [Route("api/dish")]
+
+    [ApiController]
+    [Route("[controller]")]
     public class DishController : Controller
     {
         private readonly IDishService _dishService;
@@ -21,7 +23,7 @@ namespace FoodAppApi.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public ActionResult<IEnumerable<Dish>> GetAll()
         {
             var dishes = _dishService
@@ -30,16 +32,14 @@ namespace FoodAppApi.Controllers
 
             return Ok(dishes);
 
-
-
-            //dishes.Select(r => new RestaurantDto()
-            //{
-            //    //Name = r.Name,
-            //    //Category=r.Category,
-            //    //City=r.Address.City
-
-            //}
-
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<DishDto> Get([FromRoute]int id)
+        {
+            var dishDto = _dishService.GetById(id);
+            return Ok(dishDto);
+        }
+
     }
 }

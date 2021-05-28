@@ -24,10 +24,7 @@ namespace FoodAppApi.Services
             return _dbContext.Users;
         }
 
-        //public User GetUser()
-        //{
 
-        //}
 
         public int Create(CreateUserDto dto)
         {
