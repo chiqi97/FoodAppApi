@@ -2,6 +2,7 @@
 using FoodAppApi.Models;
 using FoodAppApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,35 +39,36 @@ namespace FoodAppApi.Controllers
         //}
 
         [HttpPost("Create")]
-        public ActionResult CreateUser ([FromBody] CreateUserDto dto)
+        public string CreateUser ([FromBody] CreateUserDto dto)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                //return BadRequest(ModelState);
             }
             int id = _userService.Create(dto);
 
-            return Created($"/api/user/{id}", null);
+            return JsonConvert.SerializeObject("Register successfully");
         }
 
 
         [HttpGet("CreateNaGecie")]
-        public ActionResult CreateUserNaGecie([FromBody] CreateUserDto dto)
+        public string CreateUserNaGecie([FromBody] CreateUserDto dto)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                //return BadRequest();
             }
+
             int id = _userService.Create(dto);
 
-            return Created($"/api/user/{id}", null);
+            return JsonConvert.SerializeObject("Register successfully");
         }
 
         [HttpGet("{id}")]
         public ActionResult Get([FromRoute] int id)
         {
             var userDto = _userService.GetById(id);
-            return Ok(userDto);
+            return Ok(userDto);  
         }
 
 
