@@ -8,5 +8,6 @@ namespace FoodAppApi.Services
     {
         IEnumerable<Dish> GetAll();
         DishDto GetById(int id);
+        int Create(CreateDishDto dto);
     }
 }

@@ -32,7 +32,7 @@ namespace FoodAppApi
             services.AddDbContextPool<AppDbContext>(
             options => options.UseSqlServer(Configuration.GetConnectionString("FoodAppDBConnection")));
 
-
+ 
             services.AddAutoMapper(this.GetType().Assembly);
 
 

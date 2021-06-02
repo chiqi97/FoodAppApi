@@ -2,6 +2,7 @@
 using FoodAppApi.Models;
 using FoodAppApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,5 +42,21 @@ namespace FoodAppApi.Controllers
             return Ok(dishDto);
         }
 
+        [HttpPost("Create")]
+        public string Create([FromBody]CreateDishDto dto)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!_dishService.GetAll().Any(x => x.NameOfDish == dto.NameOfDish))
+                {
+                    int id = _dishService.Create(dto);
+                    return JsonConvert.SerializeObject("Dish added successfully!");
+
+                }
+
+            }
+
+            return JsonConvert.SerializeObject("Something went wrong!");
+        }
     }
 }

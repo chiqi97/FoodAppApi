@@ -13,6 +13,7 @@ namespace FoodAppApi
         public FoodMappingProfile()
         {
             CreateMap<CreateUserDto, User>();
+            CreateMap<CreateDishDto, Dish>();
 
             CreateMap<Dish, DishDto>();
             CreateMap<User, UserDto>();

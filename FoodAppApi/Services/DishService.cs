@@ -39,7 +39,14 @@ namespace FoodAppApi.Services
             return result;
         }
 
+        public int Create(CreateDishDto dto)
+        {
+            var dish = _mapper.Map<Dish>(dto);
+            _dbContext.Dishes.Add(dish);
+            _dbContext.SaveChanges();
 
+            return dish.Id;
+        }
 
 
     }

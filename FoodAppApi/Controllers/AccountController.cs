@@ -32,14 +32,10 @@ namespace FoodAppApi.Controllers
             return Ok(users);
         }
 
-        //[HttpGet("{id}")]
-        //public ActionResult<User> Get([FromRoute] int id)
-        //{
-        //    var user = _d
-        //}
+
 
         [HttpPost("Create")]
-        public string CreateUser ([FromBody] CreateUserDto dto)
+        public string Create ([FromBody] CreateUserDto dto)
         {
             if (ModelState.IsValid)
             {
@@ -56,18 +52,7 @@ namespace FoodAppApi.Controllers
         }
 
 
-        [HttpGet("CreateNaGecie")]
-        public string CreateUserNaGecie([FromBody] CreateUserDto dto)
-        {
-            if (!ModelState.IsValid)
-            {
-                //return BadRequest();
-            }
 
-            int id = _userService.Create(dto);
-
-            return JsonConvert.SerializeObject("Register successfully");
-        }
 
         [HttpGet("{id}")]
         public ActionResult Get([FromRoute] int id)
