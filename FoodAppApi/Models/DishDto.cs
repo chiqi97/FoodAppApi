@@ -8,7 +8,8 @@ namespace FoodAppApi.Models
     public class DishDto
     {
         public string NameOfDish { get; set; }
+        public string Category { get; set; }
         public double Price { get; set; }
-        public string PhotoPath { get; set; }
+        public string Description { get; set; }
     }
 }

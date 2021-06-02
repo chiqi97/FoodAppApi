@@ -23,6 +23,7 @@ namespace FoodAppApi.Models
         [MaxLength(50)]
         public string LastName { get; set; }
         [Required]
+        [EmailAddress]
         [MaxLength(50)]
         public string Email { get; set; }
     }

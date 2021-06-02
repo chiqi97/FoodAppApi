@@ -41,13 +41,18 @@ namespace FoodAppApi.Controllers
         [HttpPost("Create")]
         public string CreateUser ([FromBody] CreateUserDto dto)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                //return BadRequest(ModelState);
-            }
-            int id = _userService.Create(dto);
 
-            return JsonConvert.SerializeObject("Register successfully");
+                if (!_userService.GetAll().Any(x => x.UserName == dto.UserName))
+                {
+                    int id = _userService.Create(dto);
+                    return JsonConvert.SerializeObject("Register successfully.");
+                }
+            }
+
+
+            return JsonConvert.SerializeObject("Username already exists!");
         }
 
 

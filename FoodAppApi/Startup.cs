@@ -32,7 +32,7 @@ namespace FoodAppApi
             services.AddDbContextPool<AppDbContext>(
             options => options.UseSqlServer(Configuration.GetConnectionString("FoodAppDBConnection")));
 
-            services.AddScoped<FoodAppSeeder>();
+
             services.AddAutoMapper(this.GetType().Assembly);
 
 
@@ -49,9 +49,9 @@ namespace FoodAppApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,FoodAppSeeder seeder)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            seeder.Seed();
+
 
             if (env.IsDevelopment())
             {
