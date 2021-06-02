@@ -27,5 +27,6 @@ namespace FoodAppApi.Models
         [MaxLength(50)]
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
+        public string Salt { get; set; }
     }
 }
