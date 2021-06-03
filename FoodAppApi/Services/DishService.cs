@@ -63,5 +63,17 @@ namespace FoodAppApi.Services
             return _dbContext.Dishes;
         }
 
+        public void Delete (int id)
+        {
+            var dish = _dbContext
+                .Dishes
+                .FirstOrDefault(d => d.Id == id);
+            if(dish is null)
+            {
+                throw new NotFoundException("Dish not found");
+            }
+            _dbContext.Dishes.Remove(dish);
+            _dbContext.SaveChanges();
+        }
     }
 }

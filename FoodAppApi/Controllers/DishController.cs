@@ -80,6 +80,13 @@ namespace FoodAppApi.Controllers
             return Ok(output);
         }
 
+        [HttpPost("Delete/{id}")]
+        public ActionResult Delete([FromRoute]int id)
+        {
+            _dishService.Delete(id);
+
+            return NoContent();
+        }
 
     }
 }

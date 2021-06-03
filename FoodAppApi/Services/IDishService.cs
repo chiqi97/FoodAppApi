@@ -11,5 +11,6 @@ namespace FoodAppApi.Services
         int Create(CreateDishDto dto);
         IEnumerable<Dish> GetByCategory(string category);
         IEnumerable<Dish> Search(string name);
+        void Delete(int id);
     }
 }

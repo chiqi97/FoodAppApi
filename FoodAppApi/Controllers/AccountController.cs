@@ -39,10 +39,10 @@ namespace FoodAppApi.Controllers
         [HttpPost("Create")]
         public string Create ([FromBody] CreateUserDto dto)
         {
-            if (ModelState.IsValid)
-            {
+     
 
-                if (!_userService.GetAll().Any(x => x.UserName == dto.UserName))
+                if (!_userService.GetAll().Any(x => x.UserName == dto.UserName)&&
+                    ModelState.IsValid)
                 {
                     dto.Salt = Convert.ToBase64String(Common.GetRandomSalt(16));
                     dto.Password = Convert.ToBase64String(Common.SaltHashPassword(
@@ -52,7 +52,7 @@ namespace FoodAppApi.Controllers
                     int id = _userService.Create(dto);
                     return JsonConvert.SerializeObject("Register successfully.");
                 }
-            }
+            
 
 
             return JsonConvert.SerializeObject("Username already exists!");
@@ -71,7 +71,8 @@ namespace FoodAppApi.Controllers
         [HttpPost("Login")]
         public ActionResult Login([FromBody]LoginUserDto dto)
         {
-            if(_userService.GetAll().Any(u=>u.UserName == dto.UserName))
+            if(_userService.GetAll().Any(u=>u.UserName == dto.UserName)&&
+                ModelState.IsValid)
             {
                 User user = _userService.GetAll().Where(u => u.UserName == dto.UserName).FirstOrDefault();
 
