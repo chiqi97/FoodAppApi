@@ -34,9 +34,23 @@ namespace FoodAppApi.Controllers
             return Ok(dishes);
 
         }
+   
 
-        [HttpGet("{id}")]
-        public ActionResult<DishDto> Get([FromRoute]int id)
+
+        [HttpGet("GetByCategory/{category}")]
+        public ActionResult<IEnumerable<Dish>> GetByCategory([FromRoute] string category)
+        {
+            var dishes = _dishService
+                .GetByCategory(category)
+                .ToList();
+
+            return Ok(dishes);
+
+        }
+
+
+        [HttpGet("GetById/{id}")]
+        public ActionResult<DishDto> GetById([FromRoute]int id)
         {
             var dishDto = _dishService.GetById(id);
             return Ok(dishDto);
@@ -58,5 +72,14 @@ namespace FoodAppApi.Controllers
 
             return JsonConvert.SerializeObject("Something went wrong!");
         }
+
+        [HttpGet("Search/{name}")]
+        public ActionResult Search(string name)
+        {
+            var output = _dishService.Search(name);
+            return Ok(output);
+        }
+
+
     }
 }

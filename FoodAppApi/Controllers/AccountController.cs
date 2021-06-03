@@ -69,7 +69,7 @@ namespace FoodAppApi.Controllers
         }
 
         [HttpPost("Login")]
-        public string Login([FromBody]LoginUserDto dto)
+        public ActionResult Login([FromBody]LoginUserDto dto)
         {
             if(_userService.GetAll().Any(u=>u.UserName == dto.UserName))
             {
@@ -81,11 +81,13 @@ namespace FoodAppApi.Controllers
                         Convert.FromBase64String(user.Salt)));
                 if (hashPassword == user.Password)
                 {
-                    return JsonConvert.SerializeObject(user);
+                    return Ok(user);
                 }
             }
-            return JsonConvert.SerializeObject("Wrong username or password!");
+            return BadRequest("Wrong username or password!");
         }
+
+
 
 
     }

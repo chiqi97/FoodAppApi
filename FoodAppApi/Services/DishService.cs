@@ -39,6 +39,12 @@ namespace FoodAppApi.Services
             return result;
         }
 
+        public IEnumerable<Dish> GetByCategory(string category)
+        {
+            return _dbContext.Dishes.Where(x => x.Category == category);
+
+        }
+
         public int Create(CreateDishDto dto)
         {
             var dish = _mapper.Map<Dish>(dto);
@@ -48,6 +54,14 @@ namespace FoodAppApi.Services
             return dish.Id;
         }
 
+        public IEnumerable<Dish> Search(string name)
+        {
+            if (name != null)
+            {
+               return _dbContext.Dishes.Where(x => x.NameOfDish.Contains(name));
+            }
+            return _dbContext.Dishes;
+        }
 
     }
 }

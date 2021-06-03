@@ -11,7 +11,7 @@ GO
 BEGIN TRANSACTION;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210602121606_InitMigration')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210602132950_InitMigration')
 BEGIN
     CREATE TABLE [Dishes] (
         [Id] int NOT NULL IDENTITY,
@@ -24,12 +24,13 @@ BEGIN
 END;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210602121606_InitMigration')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210602132950_InitMigration')
 BEGIN
     CREATE TABLE [Users] (
         [Id] int NOT NULL IDENTITY,
         [UserName] nvarchar(50) NOT NULL,
         [Password] nvarchar(50) NOT NULL,
+        [Salt] nvarchar(max) NULL,
         [Name] nvarchar(max) NULL,
         [LastName] nvarchar(max) NULL,
         [Email] nvarchar(50) NOT NULL,
@@ -39,10 +40,10 @@ BEGIN
 END;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210602121606_InitMigration')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210602132950_InitMigration')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20210602121606_InitMigration', N'5.0.6');
+    VALUES (N'20210602132950_InitMigration', N'5.0.6');
 END;
 GO
 
