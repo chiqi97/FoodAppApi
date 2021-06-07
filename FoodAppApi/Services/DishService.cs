@@ -27,7 +27,7 @@ namespace FoodAppApi.Services
         }
 
 
-        public DishDto GetById(int id)
+        public Dish GetById(int id)
         {
    
             var dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == id);
@@ -35,8 +35,8 @@ namespace FoodAppApi.Services
             {
                 throw new NotFoundException("Dish not found");
             }
-            var result = _mapper.Map<DishDto>(dish);
-            return result;
+
+            return dish;
         }
 
         public IEnumerable<Dish> GetByCategory(string category)
@@ -70,7 +70,7 @@ namespace FoodAppApi.Services
                 .FirstOrDefault(d => d.Id == id);
             if(dish is null)
             {
-                throw new NotFoundException("Dish not found");
+                ; throw new NotFoundException("Dish not found");
             }
             _dbContext.Dishes.Remove(dish);
             _dbContext.SaveChanges();

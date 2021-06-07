@@ -13,11 +13,13 @@ namespace FoodAppApi.Services
     {
         private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly IDishService _dishService;
 
-        public UserService(AppDbContext dbContext, IMapper mapper)
+        public UserService(AppDbContext dbContext, IMapper mapper, IDishService dishService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _dishService = dishService;
         }
 
         public IEnumerable<User> GetAll()
@@ -45,6 +47,7 @@ namespace FoodAppApi.Services
 
             return user.Id;
         }
+
 
 
 

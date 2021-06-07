@@ -45,6 +45,7 @@ namespace FoodAppApi
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDishService, DishService>();
+            services.AddScoped<IShoppingCartService, ShoppingCartService>();
             services.AddSwaggerGen();
         }
 

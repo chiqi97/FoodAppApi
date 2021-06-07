@@ -17,6 +17,7 @@ namespace FoodAppApi.Entities
         }
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
