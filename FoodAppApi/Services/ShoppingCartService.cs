@@ -98,5 +98,30 @@ namespace FoodAppApi.Services
             _dbContext.SaveChanges();
         }
 
+        public void AddOne(int userId,int dishId)
+        {
+            var dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
+            var dishShopping = _dbContext.ShoppingCarts
+                .FirstOrDefault(x => x.UserId == userId && x.DishId == dishId);
+            dishShopping.NumberOfItems += 1;
+            dishShopping.Price = dishShopping.NumberOfItems * dish.Price;
+
+            _dbContext.SaveChanges();
+        }
+        public void DeleteOne(int userId, int dishId)
+        {
+            var dish = _dbContext.Dishes.FirstOrDefault(x => x.Id == dishId);
+            var dishShopping = _dbContext.ShoppingCarts
+                .FirstOrDefault(x => x.UserId == userId && x.DishId == dishId);
+            dishShopping.NumberOfItems -= 1;
+            dishShopping.Price = dishShopping.NumberOfItems * dish.Price;
+            if (dishShopping.NumberOfItems <= 0)
+            {
+                _dbContext.ShoppingCarts.Remove(dishShopping);
+            }
+            _dbContext.SaveChanges();
+        }
+
+
     }
 }

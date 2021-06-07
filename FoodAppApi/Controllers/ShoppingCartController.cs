@@ -61,6 +61,23 @@ namespace FoodAppApi.Controllers
             return JsonConvert.SerializeObject("Clear Successfully!");
         }
 
+        [HttpPost("DeleteOne/{userId}/{dishId}")]
+        public string DeleteOne([FromRoute]int userId, int dishId)
+        {
+            _shoppingCartService.DeleteOne(userId,dishId);
+
+            return JsonConvert.SerializeObject("Deleted Successfully!");
+        }
+
+        [HttpPost("AddOne/{userId}/{dishId}")]
+        public string AddOne([FromRoute] int userId, int dishId)
+        {
+            _shoppingCartService.AddOne(userId, dishId);
+
+            return JsonConvert.SerializeObject("Added Successfully!");
+        }
+
+
 
     }
 }
