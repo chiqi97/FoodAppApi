@@ -20,10 +20,10 @@ namespace FoodAppApi.Controllers
             _shoppingCartService = shoppingCartService;
         }
 
-        [HttpPost("AddToShoppingCart/{userId}/{id}")]
-        public string AddToShoppingCart([FromRoute] int userId, int id)
+        [HttpPost("AddToShoppingCart/{userId}/{dishId}")]
+        public string AddToShoppingCart([FromRoute] int userId, int dishId)
         {
-            if (_shoppingCartService.AddToShoppingCart(userId, id))
+            if (_shoppingCartService.AddToShoppingCart(userId, dishId))
             {
                 return JsonConvert.SerializeObject("Added successfully.");
             }

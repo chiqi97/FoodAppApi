@@ -51,7 +51,7 @@ namespace FoodAppApi.Services
             {
                 userDish = _dbContext.ShoppingCarts.Where(x => x.UserId == userId && x.DishId == dishId).FirstOrDefault();
                 userDish.NumberOfItems += 1;
-                userDish.Price *= userDish.NumberOfItems;
+                userDish.Price = userDish.NumberOfItems*dish.Price;
             }
 
             _dbContext.SaveChanges();
@@ -78,7 +78,7 @@ namespace FoodAppApi.Services
 
         public void Delete (int userId, int dishId)
         {
-            var item = _dbContext.ShoppingCarts.FirstOrDefault(x => x.Id == dishId && x.UserId==userId);
+            var item = _dbContext.ShoppingCarts.FirstOrDefault(x => x.DishId == dishId && x.UserId==userId);
 
             if (item is null)
             {
