@@ -70,7 +70,7 @@ namespace FoodAppApi.Services
                 .FirstOrDefault(d => d.Id == id);
             if(dish is null)
             {
-                ; throw new NotFoundException("Dish not found");
+                throw new NotFoundException("Dish not found");
             }
             _dbContext.Dishes.Remove(dish);
             _dbContext.SaveChanges();

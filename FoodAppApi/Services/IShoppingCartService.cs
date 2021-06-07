@@ -1,4 +1,5 @@
 ﻿using FoodAppApi.Entities;
+using FoodAppApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,9 @@ namespace FoodAppApi.Services
     public interface IShoppingCartService
     {
         IEnumerable<ShoppingCart> GetAll();
-        bool AddToShoppingCart(string userName, int id);
-        List<ShoppingCart> GetById(int id);
+        bool AddToShoppingCart(int userId, int dishId);
+        List<ShoppingCartDto> GetById(int id);
+        void Delete(int userId, int dishId);
+        void Clear(int userId);
     }
 }

@@ -20,10 +20,10 @@ namespace FoodAppApi.Controllers
             _shoppingCartService = shoppingCartService;
         }
 
-        [HttpPost("AddToShoppingCart/{userName}/{id}")]
-        public string AddToShoppingCart([FromRoute] string userName, int id)
+        [HttpPost("AddToShoppingCart/{userId}/{id}")]
+        public string AddToShoppingCart([FromRoute] int userId, int id)
         {
-            if (_shoppingCartService.AddToShoppingCart(userName, id))
+            if (_shoppingCartService.AddToShoppingCart(userId, id))
             {
                 return JsonConvert.SerializeObject("Added successfully.");
             }
@@ -45,5 +45,22 @@ namespace FoodAppApi.Controllers
 
             return Ok(cartItems);
         }
+
+        [HttpPost("Delete/{userId}/{dishId}")]
+        public string Delete([FromRoute]int userId, int dishId)
+        {
+            _shoppingCartService.Delete(userId,dishId);
+            return JsonConvert.SerializeObject("Deleted Successfully!");
+        }
+
+        [HttpPost("Clear/{userId}")]
+        public string Clear([FromRoute] int userId)
+        {
+            _shoppingCartService.Clear(userId);
+
+            return JsonConvert.SerializeObject("Clear Successfully!");
+        }
+
+
     }
 }
