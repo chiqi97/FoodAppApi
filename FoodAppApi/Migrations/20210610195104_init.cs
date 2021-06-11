@@ -32,7 +32,8 @@ namespace FoodAppApi.Migrations
                     DishId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     NumberOfItems = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false)
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    PriceOfOneDish = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,6 +52,7 @@ namespace FoodAppApi.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    isLogged = table.Column<bool>(type: "bit", nullable: false),
                     IsAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

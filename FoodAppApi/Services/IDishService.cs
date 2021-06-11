@@ -12,5 +12,6 @@ namespace FoodAppApi.Services
         IEnumerable<Dish> GetByCategory(string category);
         IEnumerable<Dish> Search(string name);
         void Delete(int id);
+        Dish Update(Dish dishChanges);
     }
 }

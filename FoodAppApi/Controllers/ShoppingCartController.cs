@@ -1,4 +1,5 @@
-﻿using FoodAppApi.Services;
+﻿using FoodAppApi.Models;
+using FoodAppApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -20,7 +21,7 @@ namespace FoodAppApi.Controllers
             _shoppingCartService = shoppingCartService;
         }
 
-        [HttpPost("AddToShoppingCart/{userId}/{dishId}")]
+        [HttpPost("AddToShoppingCart/userid={userId}/dishid={dishId}")]
         public string AddToShoppingCart([FromRoute] int userId, int dishId)
         {
             if (_shoppingCartService.AddToShoppingCart(userId, dishId))
@@ -31,12 +32,12 @@ namespace FoodAppApi.Controllers
 
         }
 
-        [HttpGet("GetAll")]
-        public ActionResult GetAll()
-        {
-            var items=_shoppingCartService.GetAll();
-            return Ok(items);
-        }
+        //[HttpGet("GetAll")]
+        //public ActionResult GetAll()
+        //{
+        //    var items=_shoppingCartService.GetAll();
+        //    return Ok(items);
+        //}
 
         [HttpGet("GetByUserId/{id}")]
         public ActionResult GetByUserId([FromRoute]int id)
@@ -46,7 +47,7 @@ namespace FoodAppApi.Controllers
             return Ok(cartItems);
         }
 
-        [HttpPost("Delete/{userId}/{dishId}")]
+        [HttpPost("Delete/userid={userId}/dishid={dishId}")]
         public string Delete([FromRoute]int userId, int dishId)
         {
             _shoppingCartService.Delete(userId,dishId);
@@ -61,7 +62,7 @@ namespace FoodAppApi.Controllers
             return JsonConvert.SerializeObject("Clear Successfully!");
         }
 
-        [HttpPost("DeleteOne/{userId}/{dishId}")]
+        [HttpPost("DeleteOne/userid={userId}/dishid={dishId}")]
         public string DeleteOne([FromRoute]int userId, int dishId)
         {
             _shoppingCartService.DeleteOne(userId,dishId);
@@ -69,12 +70,26 @@ namespace FoodAppApi.Controllers
             return JsonConvert.SerializeObject("Deleted Successfully!");
         }
 
-        [HttpPost("AddOne/{userId}/{dishId}")]
+        [HttpPost("AddOne/userid={userId}/dishid={dishId}")]
         public string AddOne([FromRoute] int userId, int dishId)
         {
             _shoppingCartService.AddOne(userId, dishId);
 
             return JsonConvert.SerializeObject("Added Successfully!");
+        }
+
+        [HttpGet("sum/{userId}")]
+        public ActionResult Sum([FromRoute] int userId)
+        {
+            var dishes = _shoppingCartService.GetById(userId);
+        
+            double sum = dishes.Select(x => x.Price).Sum();
+            SumShoppingCartDto result = new SumShoppingCartDto()
+            {
+                Price = sum
+            };
+
+            return Ok(result);
         }
 
 

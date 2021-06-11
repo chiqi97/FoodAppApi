@@ -17,5 +17,6 @@ namespace FoodAppApi.Entities
         public int UserId { get; set; }
         public int NumberOfItems { get; set; }
         public double Price { get; set; }
+        public double PriceOfOneDish { get; set; }
     }
 }

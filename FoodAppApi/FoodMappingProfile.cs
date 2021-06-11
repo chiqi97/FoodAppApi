@@ -16,10 +16,12 @@ namespace FoodAppApi
             CreateMap<LoginUserDto, User>();
 
             CreateMap<CreateDishDto, Dish>();
+            CreateMap<EditDishDto, Dish>();
 
             CreateMap<Dish, DishDto>();
             CreateMap<User, UserDto>();
             CreateMap<ShoppingCart, ShoppingCartDto>();
+
 
         }
             

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodAppApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210607210452_init")]
+    [Migration("20210610195104_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,6 +66,9 @@ namespace FoodAppApi.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<double>("PriceOfOneDish")
+                        .HasColumnType("float");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -107,6 +110,9 @@ namespace FoodAppApi.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("isLogged")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

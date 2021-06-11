@@ -41,6 +41,10 @@ namespace FoodAppApi.Services
 
         public IEnumerable<Dish> GetByCategory(string category)
         {
+            if (category.ToLower() == "getall")
+            {
+                return _dbContext.Dishes;
+            }
             return _dbContext.Dishes.Where(x => x.Category == category);
 
         }
@@ -75,5 +79,16 @@ namespace FoodAppApi.Services
             _dbContext.Dishes.Remove(dish);
             _dbContext.SaveChanges();
         }
+
+        public Dish Update (Dish dishChanges)
+        {
+            var dish = _dbContext.Dishes.Attach(dishChanges);
+            dish.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+            _dbContext.SaveChanges();
+
+            return dishChanges;
+        }
+
     }
 }

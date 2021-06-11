@@ -64,6 +64,9 @@ namespace FoodAppApi.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<double>("PriceOfOneDish")
+                        .HasColumnType("float");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -105,6 +108,9 @@ namespace FoodAppApi.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("isLogged")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

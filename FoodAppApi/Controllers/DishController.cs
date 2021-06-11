@@ -88,5 +88,41 @@ namespace FoodAppApi.Controllers
             return NoContent();
         }
 
+        [HttpGet("UpdateView/{id}")]
+        public ActionResult UpdateView(int id)
+        {
+            Dish dish = _dishService.GetById(id);
+
+            EditDishDto editDishDto = new EditDishDto()
+            {
+                Id = dish.Id,
+                NameOfDish = dish.NameOfDish,
+                Category = dish.Category,
+                Description = dish.Description,
+                Price = dish.Price
+            };
+
+            return Ok(editDishDto);
+        }
+
+        [HttpPost("Update")]
+        public string Update([FromBody] EditDishDto editDishDto)
+        {
+            Dish dish = _dishService.GetById(editDishDto.Id);
+            if (!ModelState.IsValid || dish==null )
+            {
+                return JsonConvert.SerializeObject("Something went wrong!");
+            }
+
+
+            dish.NameOfDish = editDishDto.NameOfDish;
+            dish.Description = editDishDto.Description;
+            dish.Category = editDishDto.Category;
+            dish.Price = editDishDto.Price;
+
+            _dishService.Update(dish);
+            return JsonConvert.SerializeObject("Updated Successfully!");
+        }
+
     }
 }

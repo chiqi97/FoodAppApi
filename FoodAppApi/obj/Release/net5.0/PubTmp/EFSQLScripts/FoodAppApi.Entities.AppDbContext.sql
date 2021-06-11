@@ -11,7 +11,7 @@ GO
 BEGIN TRANSACTION;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210607210452_init')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210610195104_init')
 BEGIN
     CREATE TABLE [Dishes] (
         [Id] int NOT NULL IDENTITY,
@@ -24,7 +24,7 @@ BEGIN
 END;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210607210452_init')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210610195104_init')
 BEGIN
     CREATE TABLE [ShoppingCarts] (
         [Id] int NOT NULL IDENTITY,
@@ -33,12 +33,13 @@ BEGIN
         [UserId] int NOT NULL,
         [NumberOfItems] int NOT NULL,
         [Price] float NOT NULL,
+        [PriceOfOneDish] float NOT NULL,
         CONSTRAINT [PK_ShoppingCarts] PRIMARY KEY ([Id])
     );
 END;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210607210452_init')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210610195104_init')
 BEGIN
     CREATE TABLE [Users] (
         [Id] int NOT NULL IDENTITY,
@@ -48,16 +49,17 @@ BEGIN
         [Name] nvarchar(max) NULL,
         [LastName] nvarchar(max) NULL,
         [Email] nvarchar(50) NOT NULL,
+        [isLogged] bit NOT NULL,
         [IsAdmin] bit NOT NULL,
         CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
     );
 END;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210607210452_init')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210610195104_init')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20210607210452_init', N'5.0.6');
+    VALUES (N'20210610195104_init', N'5.0.6');
 END;
 GO
 

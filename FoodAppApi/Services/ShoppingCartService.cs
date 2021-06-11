@@ -38,8 +38,10 @@ namespace FoodAppApi.Services
                 DishId = dishId,
                 UserId = userId,
                 Name=dish.NameOfDish,
+                PriceOfOneDish=dish.Price,
                 Price=dish.Price,
                 NumberOfItems=1
+                
             };
 
             if (!_dbContext.ShoppingCarts.Any(x => x.DishId == dishId && x.UserId == userId))

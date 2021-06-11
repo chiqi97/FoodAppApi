@@ -18,10 +18,12 @@ namespace FoodAppApi.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
+        private readonly AppDbContext _dbContext;
 
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService, AppDbContext dbContext)
         {
             _userService = userService;
+            _dbContext = dbContext;
         }
 
 
@@ -76,6 +78,9 @@ namespace FoodAppApi.Controllers
             {
                 User user = _userService.GetAll().Where(u => u.UserName == dto.UserName).FirstOrDefault();
 
+                user.isLogged = true;
+                _dbContext.SaveChanges();
+
                 var hashPassword = Convert.ToBase64String(
                     Common.SaltHashPassword(
                         Encoding.ASCII.GetBytes(dto.Password),
@@ -88,10 +93,21 @@ namespace FoodAppApi.Controllers
             return BadRequest("Wrong username or password!");
         }
 
+        [HttpPost("Logout")]
+        public string Logout()
+        {
+            var users = _userService.GetAll().All(x => { x.isLogged = true; return false; });
+            return JsonConvert.SerializeObject("Loged out successfully.");
+        }
+
+        [HttpGet("CheckLoggedIn")]
+        public ActionResult CheckLoggedIn()
+        {
+            return Ok(_userService.GetUserLogged());
+        }
 
 
 
 
-
-    }
+        }
 }

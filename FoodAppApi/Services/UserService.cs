@@ -49,6 +49,14 @@ namespace FoodAppApi.Services
         }
 
 
+        public User GetUserLogged()
+        {
+            var user = _dbContext.Users.FirstOrDefault(x => x.isLogged == true);
+           
+
+            return user;
+        }
+
 
 
 
