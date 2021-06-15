@@ -15,11 +15,21 @@ namespace FoodAppApi.Services
         private readonly IMapper _mapper;
         private readonly IDishService _dishService;
 
-        public UserService(AppDbContext dbContext, IMapper mapper, IDishService dishService)
+        public UserService(AppDbContext dbContext,
+            IMapper mapper,
+            IDishService dishService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
             _dishService = dishService;
+        }
+        public int Create(CreateUserDto dto)
+        {
+            var user = _mapper.Map<User>(dto);
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
+
+            return user.Id;
         }
 
         public IEnumerable<User> GetAll()
@@ -39,23 +49,14 @@ namespace FoodAppApi.Services
             return result;
         }
 
-        public int Create(CreateUserDto dto)
-        {
-            var user = _mapper.Map<User>(dto);
-            _dbContext.Users.Add(user);
-            _dbContext.SaveChanges();
 
-            return user.Id;
-        }
-
-
-        public User GetUserLogged()
-        {
-            var user = _dbContext.Users.FirstOrDefault(x => x.isLogged == true);
+        //public User GetUserLogged()
+        //{
+        //    var user = _dbContext.Users.FirstOrDefault(x => x.isLogged == true);
            
 
-            return user;
-        }
+        //    return user;
+        //}
 
 
 

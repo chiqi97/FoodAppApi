@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodAppApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210610195104_init")]
+    [Migration("20210615195841_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -110,9 +110,6 @@ namespace FoodAppApi.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("isLogged")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

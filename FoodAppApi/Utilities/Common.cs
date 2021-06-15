@@ -8,7 +8,6 @@ namespace FoodAppApi.Utilities
 {
     public class Common
     {
-        //Create Random Salt String
         public static byte[] GetRandomSalt(int length)
         {
             var random = new RNGCryptoServiceProvider();
@@ -16,8 +15,6 @@ namespace FoodAppApi.Utilities
             random.GetNonZeroBytes(salt);
             return salt;
         }
-
-        //Create password with salt
         public static byte[] SaltHashPassword(byte[] password, byte[] salt)
         {
             HashAlgorithm algorithm = new SHA256Managed();
