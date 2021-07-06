@@ -42,7 +42,10 @@ namespace FoodAppApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FoodAppApi", Version = "v1" });
             });
 
-
+            //asdf
+            //jakas zmiana2
+            //news change
+            //newschange222
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDishService, DishService>();
             services.AddScoped<IShoppingCartService, ShoppingCartService>();
