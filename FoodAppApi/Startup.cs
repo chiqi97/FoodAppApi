@@ -46,6 +46,8 @@ namespace FoodAppApi
             //jakas zmiana2
             //news change
             //newschange222
+            //newschange212
+            //newschange21243
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDishService, DishService>();
             services.AddScoped<IShoppingCartService, ShoppingCartService>();
