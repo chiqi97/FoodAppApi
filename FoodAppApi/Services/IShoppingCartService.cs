@@ -14,7 +14,5 @@ namespace FoodAppApi.Services
         List<ShoppingCartDto> GetById(int id);
         void Delete(int userId, int dishId);
         void Clear(int userId);
-        void AddOne(int userId, int dishId);
-        void DeleteOne(int userId, int dishId);
     }
 }

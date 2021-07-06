@@ -62,6 +62,7 @@ namespace FoodAppApi.Controllers
             return JsonConvert.SerializeObject("Clear Successfully!");
         }
 
+<<<<<<< HEAD
         [HttpPost("DeleteOne/userid={userId}/dishid={dishId}")]
         public string DeleteOne([FromRoute]int userId, int dishId)
         {
@@ -93,6 +94,8 @@ namespace FoodAppApi.Controllers
         }
 
 
+=======
+>>>>>>> parent of 6f22cb5 ( Added delete and add one functionality)
 
     }
 }
