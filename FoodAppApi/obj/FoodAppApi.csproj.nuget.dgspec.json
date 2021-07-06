@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cezary.zysk\\Source\\Repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj": {}
+    "C:\\Users\\cezary.zysk\\source\\repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cezary.zysk\\Source\\Repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj": {
+    "C:\\Users\\cezary.zysk\\source\\repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cezary.zysk\\Source\\Repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj",
+        "projectUniqueName": "C:\\Users\\cezary.zysk\\source\\repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj",
         "projectName": "FoodAppApi",
-        "projectPath": "C:\\Users\\cezary.zysk\\Source\\Repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj",
+        "projectPath": "C:\\Users\\cezary.zysk\\source\\repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj",
         "packagesPath": "C:\\Users\\cezary.zysk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cezary.zysk\\Source\\Repos\\FoodAppApi\\FoodAppApi\\obj\\",
+        "outputPath": "C:\\Users\\cezary.zysk\\source\\repos\\FoodAppApi\\FoodAppApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

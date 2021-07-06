@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZsDztbcS0gvvxIKFHY/JjCtz4NVkP7HRUfOZdPOWneRGlQTBDM2X1ZBz+PJZF7LL3Fwi5yVV0oqKE2x/TxC7Bg==",
+  "dgSpecHash": "w44DzraflLUqqVO/PiOPEbHiqqh+wmS1O3B7aVGU7xmukeDLfC3Wa6jr6Hgy6yj/GUZbZ4GhZLuU84STvO1Mzw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cezary.zysk\\Source\\Repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj",
+  "projectFilePath": "C:\\Users\\cezary.zysk\\source\\repos\\FoodAppApi\\FoodAppApi\\FoodAppApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cezary.zysk\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\cezary.zysk\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
